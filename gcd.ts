@@ -7,3 +7,10 @@ export function gcdBruteForce(a: number, b: number) {
   }
   return gcd;
 }
+
+export function gcdEuclid(a: number, b: number): number {
+  if (a === b) {
+    return a;
+  }
+  return gcdEuclid(Math.min(a, b), Math.max(a, b) - Math.min(a, b));
+}
