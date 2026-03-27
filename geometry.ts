@@ -25,6 +25,10 @@ export class Circle implements Shape {
 
   encompasses(other: Shape): boolean {
     if (other instanceof Rectangle) {
+      return other.pointA().distanceTo(this.center) <= this.radius &&
+        other.pointB().distanceTo(this.center) <= this.radius &&
+        other.pointC().distanceTo(this.center) <= this.radius &&
+        other.pointD().distanceTo(this.center) <= this.radius;
     }
     throw new Error("Method not implemented.");
   }
@@ -78,6 +82,22 @@ export class Rectangle implements Shape {
         other.isBetweenY(this.bottomLeft, this.topRight);
     }
     throw new Error("Method not implemented.");
+  }
+
+  pointA(): Point2D {
+    return this.bottomLeft;
+  }
+
+  pointB(): Point2D {
+    return new Point2D(this.bottomLeft.x, this.topRight.y);
+  }
+
+  pointC(): Point2D {
+    return this.topRight;
+  }
+
+  pointD(): Point2D {
+    return new Point2D(this.topRight.x, this.bottomLeft.y);
   }
 
   circumference(): number {

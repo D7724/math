@@ -12,7 +12,7 @@ Deno.test("circumference of a circle with radius 5 is roughtly 31.416", () => {
   assertAlmostEquals(actual, 31.416, 0.01);
 });
 
-/* Deno.test("circle encompasses rectangle", () => {
+Deno.test("circle encompasses rectangle", () => {
   // Arrange
   const circle = new Circle(new Point2D(0, 0), 5);
   const rectangle = new Rectangle(new Point2D(-1, -1), new Point2D(1, 1));
@@ -22,7 +22,7 @@ Deno.test("circumference of a circle with radius 5 is roughtly 31.416", () => {
 
   // Assert
   assertEquals(actual, true);
-}); */
+});
 
 Deno.test("rectangle encompasses circle", () => {
   // Arrange
