@@ -5,7 +5,11 @@ export class Fraction {
   constructor(
     private numerator: number,
     private denominator: number,
-  ) {}
+  ) {
+    const gdc = gcdBruteForce(numerator, denominator);
+    this.numerator = numerator / gdc;
+    this.denominator = denominator / gdc;
+  }
 
   public add(other: Fraction) {
     const newNumerator = this.numerator * other.denominator +
