@@ -1,3 +1,4 @@
+import { gcdBruteForce } from "./gcd.ts";
 import { roundTo } from "./utils.ts";
 
 export class Fraction {
@@ -7,16 +8,16 @@ export class Fraction {
   ) {}
 
   public add(other: Fraction) {
-    const newNumerator =
-      this.numerator * other.denominator + other.numerator * this.denominator;
+    const newNumerator = this.numerator * other.denominator +
+      other.numerator * this.denominator;
     const newDenominator = this.denominator * other.denominator;
     this.numerator = newNumerator;
     this.denominator = newDenominator;
   }
 
   public subtract(other: Fraction) {
-    const newNumerator =
-      this.numerator * other.denominator - other.numerator * this.denominator;
+    const newNumerator = this.numerator * other.denominator -
+      other.numerator * this.denominator;
     const newDenominator = this.denominator * other.denominator;
     this.numerator = newNumerator;
     this.denominator = newDenominator;
@@ -55,5 +56,9 @@ export class Fraction {
       throw new Error(`non-numeric numerator/denominator`);
     }
     return new Fraction(numerator, denominator);
+  }
+
+  public cancel(): number {
+    return gcdBruteForce(this.numerator, this.denominator);
   }
 }

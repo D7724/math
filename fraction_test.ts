@@ -34,3 +34,12 @@ Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
   // Assert
   assertAlmostEquals(left.toFloat(0.01), 0.67);
 });
+
+Deno.test("gcd of 18 and 27 is 9", () => {
+  // Arrange
+  const testee = new Fraction(18, 27);
+  // Act
+  const result = testee.cancel();
+  // Assert
+  assertEquals(result, 9);
+});
