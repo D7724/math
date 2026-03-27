@@ -73,6 +73,10 @@ export class Rectangle implements Shape {
   ) {}
 
   encompasses(other: Shape): boolean {
+    if (other instanceof Circle) {
+      return other.isBetweenX(this.bottomLeft, this.topRight) &&
+        other.isBetweenY(this.bottomLeft, this.topRight);
+    }
     throw new Error("Method not implemented.");
   }
 
